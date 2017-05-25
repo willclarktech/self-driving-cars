@@ -10,7 +10,7 @@ def screen_record():
         printscreen_numpy = np\
             .array(printscreen_pil.getdata(), dtype='uint8')\
             .reshape((printscreen_pil.size[1], printscreen_pil.size[0], 4))
-        cv2.imshow('window', printscreen_numpy)
+        cv2.imshow('window', cv2.cvtColor(printscreen_numpy, cv2.COLOR_BGR2RGB))
         if cv2.waitKey(25) & 0xFF == ord('q'):
             cv2.destroyAllWindows()
             break
